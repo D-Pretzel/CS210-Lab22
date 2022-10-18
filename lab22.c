@@ -53,7 +53,7 @@ int main(){
     double homePointDifferential = pointDifferentialPerGameOneTeam(team1, homeIDs, awayIDs, homeScores, awayScores, NUM_GAMES);
     double awayPointDifferential = pointDifferentialPerGameOneTeam(team2, homeIDs, awayIDs, homeScores, awayScores, NUM_GAMES);
     // Subtract the home team from the away team to get the pointDifferentialStat
-    double pointDifferentialStat =homePointDifferential - awayPointDifferential;
+    double pointDifferentialStat = homePointDifferential - awayPointDifferential;
     // Call shootingEffectivenessOneTeam 2x – once for the home team and once for the away time
     double homeShootingEffectiveness = shootingEffectivenessOneTeam(team1, homeIDs, awayIDs, homeFgPcts, awayFgPcts, homeFg3Pcts, awayFg3Pcts, homeFtPcts, awayFtPcts, NUM_GAMES);
     double awayShootingEffectiveness = shootingEffectivenessOneTeam(team2, homeIDs, awayIDs, homeFgPcts, awayFgPcts, homeFg3Pcts, awayFg3Pcts, homeFtPcts, awayFtPcts, NUM_GAMES);
