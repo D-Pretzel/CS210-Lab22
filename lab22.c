@@ -32,23 +32,26 @@ int main(){
 
     FILE *fp = fopen("games.csv", "r");
     if (fp == NULL) {
-        puts("Error!!!");
+        puts("Error!!!");   //Error handling
         return -1;
     }
 
-    char line[1024];
-    int i = 0;
-    fgets(line, 1024, fp);
+    char line[1024];    //Creates buffer for each line
+    fgets(line, 1024, fp);  //Reads first line of file and discards it
+    int i = 0;  //Counter for the number of games read
     // Read values of the file without the first line
     while (!feof(fp)) {
         fscanf(fp, "%d,%d,%d,%lf,%lf,%lf,%d,%d,%d,%lf,%lf,%lf,%d,%d,%d\n", &homeIDs[i], &awayIDs[i], &homeScores[i], &homeFgPcts[i], &homeFtPcts[i], &homeFg3Pcts[i], &homeAssists[i], &homeRebounds[i], &awayScores[i], &awayFgPcts[i], &awayFtPcts[i], &awayFg3Pcts[i], &awayAssists[i], &awayRebounds[i], &homeTeamWins[i]);
         i++;
     }
-    fclose(fp);
+    fclose(fp); //Close file
 
     // ----------------------------------------------------------------------------------
     // Step 2:  Call the 5 functions and gather their data
     // ----------------------------------------------------------------------------------
+
+    /* They are wrong about the away minus home, it should be home minus away   */
+
     // Call pointDifferentialPerGameOneTeam 2x – once for the home team and once for the away time
     double homePointDifferential = pointDifferentialPerGameOneTeam(team1, homeIDs, awayIDs, homeScores, awayScores, NUM_GAMES);
     double awayPointDifferential = pointDifferentialPerGameOneTeam(team2, homeIDs, awayIDs, homeScores, awayScores, NUM_GAMES);
